@@ -1,0 +1,214 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+/* CUSTOM PROPERTIES */
+:root {
+    --clr-box-bg: hsl(228, 56%, 26%);
+    --clr-txt-light: hsl(243, 100%, 93%);
+    --clr-txt-dark: hsl(229, 57%, 11%);
+
+    --font-family: "Raleway", sans-serif;
+}
+
+/* GENERAL STYLES */
+
+* {
+    box-sizing: border-box;
+    /* padding: 0;
+    margin: 0; */
+}
+
+html {
+    font-size: 100%;
+}
+
+body {   
+    min-height: 100vh;
+    background-image: url(../images/bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 1rem;
+
+    font-family: var(--font-family);
+    color: var(--clr-txt-light);
+}
+
+.component-container {   
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    
+    max-width: 60rem;
+    margin: 10rem auto;
+}
+
+/* LOGOS */
+
+.logos {   
+    background-color: var(--clr-box-bg);
+    border-radius: 0.5rem 100px 0.5rem 0.5rem;
+    padding: 2rem;
+}
+
+.logos__main-logo {
+    width: 10rem;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.logos__small-logos {
+    display: flex;
+    gap: 1rem;
+}
+
+.logos__img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: var(--clr-txt-dark);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.logos__small-logo {
+    min-width: 100%;
+}
+
+/* STORAGE */
+
+.storage {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.storage__storage-used {
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 5;
+    
+    background-color: var(--clr-box-bg);
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.storage__storage-left {   
+    grid-column: 2 / span 1;
+    grid-row: 5 / span 2;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    position: relative;
+   
+    background-color: white;
+    padding: 0 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.storage__range-back {
+    height: 1.2rem;
+    background-color: var(--clr-txt-dark);
+    padding: 2px;
+    border-radius: 0.5rem;
+}
+
+.storage__range-front {
+    display: flex;
+    justify-content: end;
+    
+    width: 81.5%;
+    height: 100%;
+    background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    padding: 2px;
+    border-radius: 0.5rem;
+}
+
+.storage__range-dot {
+    width: calc(1.2rem - 8px);
+    height: 100%;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.storage__text-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.storage__text {
+    font-size: 0.9rem;
+}
+
+.storage__text--emphasize {
+    font-weight: 700;
+}
+
+.storage__text--large-dark {
+    margin: 0;
+
+    font-size: 2.5rem;
+    color: var(--clr-txt-dark);
+}
+
+.storage__text--uppercase-transparent {
+    color: var(--clr-txt-dark);
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+.storage__triangle {
+    display: none;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(to right top, transparent 50%, white 50%);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 860px) {
+    body {   
+        background-image: url(../images/bg-desktop.png);
+    }
+    
+    .component-container {   
+        grid-template-columns: 35% 65%;
+        gap: 2rem;
+        
+        max-width: 60rem;
+    }
+    
+    .logos__main-logo {
+        margin-bottom: 2rem;
+    }
+
+    .storage {
+        grid-template-columns: 1fr max-content 2rem;
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .storage__storage-used {
+        grid-column: 1 / span 3;
+        grid-row: 2 / span 5;
+    }
+    
+    .storage__storage-left {   
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 2;
+
+        bottom: 1rem;
+        border-bottom-right-radius: 0;
+    }
+
+    .storage__triangle {
+        display: block;
+    }
+}
